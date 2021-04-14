@@ -1,15 +1,13 @@
 import React from 'react';
-import codic from './../../assets/codic.jpg'
+
 import './styles.scss';
 
 
 const Footer = props => {
     return(
-       <footer className="footer" style={{
-        backgroundImage: `url(${codic})`
-      }}>
+       <footer className="footer" >
            <div className="wrap">
-            CODIC 2021
+           Codic Consulting Drottninggatan 38, Göteborg, Västra Götalands län, 411 07, Sverige
            </div>
        </footer>
     );

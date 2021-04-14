@@ -1,17 +1,15 @@
 import React from 'react';
 import './styles.scss';
-import Logo from './../../assets/codic-logo.png';
+import Logo from './../../assets/codic-logo.jpg';
 import { Link } from 'react-router-dom';
 import {auth} from './../../firebase/utils';
-import codic from './../../assets/codic.jpg';
+
 
 
 const Header = props => {
     const {currentUser} = props;
     return (
-        <header className="header" style={{
-            backgroundImage: `url(${codic})`
-          }}>
+        <header className="header" >
             <div className="wrap">
                 <div className="logo">
                     <Link to="/">

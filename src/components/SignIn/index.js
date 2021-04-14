@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import './styles.scss';
 import Buttons from './../forms/Button';
-import {signInWithGoogle} from './../../firebase/utils';
+import {signInWithGoogle, auth} from './../../firebase/utils';
 
 import FormInput from './../forms/Forminput';
 import Button from './../forms/Button';
@@ -30,6 +30,17 @@ class SignIn extends Component{
 
     handleSubmit = async e => {
         e.preventDefault();
+        const {email, password}=  this.state;
+        try{
+
+            await auth.signInWithEmailAndPassword(email, password);
+            this.state({
+                ...initialState
+            });
+
+        }catch(err){
+        //console.log
+        }
     }
 
     render() {
@@ -58,6 +69,10 @@ class SignIn extends Component{
                             placeholder="password"
                             handleChange={this.handleChange}
                             />
+
+                            <Button type="submit">
+                                LogIn
+                            </Button>
 
                             <div className="socialSignin">
                                <div className="row">

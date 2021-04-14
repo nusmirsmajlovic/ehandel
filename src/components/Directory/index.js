@@ -1,6 +1,6 @@
 import React from 'react';
 import Böcker from './../../assets/böcker.jpg';
-import Kurser from './../../assets/kurser2.jpg';
+
 import './styles.scss';
 
 const Directory = props => {
@@ -14,19 +14,10 @@ const Directory = props => {
           }}
         >
           <a>
-            Böcker
+            eHandel
           </a>
         </div>
-        <div
-          className="item"
-          style={{
-            backgroundImage: `url(${Kurser})`
-          }}
-        >
-          <a>
-            Andra Produkter
-          </a>
-        </div>
+    
       </div>
     </div>
   );
