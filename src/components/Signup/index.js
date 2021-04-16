@@ -3,6 +3,7 @@ import './styles.scss';
 
 import {auth, handleUserProfile} from './../../firebase/utils';
 
+import AuthWrapper from './../AuthWrapper';
 import Forminput from './../forms/Forminput';
 import Button from './../forms/Button';
 
@@ -62,14 +63,15 @@ class Signup extends Component{
 
     render(){
         const {dysplayName, email, password, confirmPassword, errors} = this.state; 
-        return(
-            <div className="signup">
-                <div className="wrap">
-                    <h2>
-                        Signup
-                    </h2>
+          
+        const configAuthWrapper = {
+            headline:'Ragistration'
+        };
 
-                    {errors.length > 0 &&(
+        return(
+            <AuthWrapper {...configAuthWrapper}>
+
+                {errors.length > 0 &&(
                         <ul>
                             {errors.map((err, index) =>{
                                 return(
@@ -81,7 +83,7 @@ class Signup extends Component{
                         </ul>
                     )}
 
-                    <div className="formWrap">  
+                <div className="formWrap">  
                     <form onSubmit={this.handleFormSubmit}>
                         
                         <Forminput
@@ -119,9 +121,8 @@ class Signup extends Component{
 
                     </form>
                     </div>
-                </div>
-            </div>
-        )
+            </AuthWrapper>
+        );
     }
 }
 
