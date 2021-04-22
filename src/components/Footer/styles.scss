@@ -6,3 +6,19 @@
       
     }
   }
+
+  .footer_link{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px 50px;
+    .footer_a{
+      color: black;
+    }
+    .footer_a:hover{
+      color: purple;
+    }
+    
+  }

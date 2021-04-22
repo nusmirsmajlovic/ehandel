@@ -6,7 +6,7 @@ const MainLayout = props =>{
     return(
        <div >
            <Header {...props}/>
-           <div className="main">
+           <div className="main" style={{minHeight: "100vh"}}>
               {props.children}
            </div>
            <Footer/>

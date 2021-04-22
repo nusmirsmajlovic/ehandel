@@ -19,7 +19,7 @@
         content: '';
         position: absolute;
         top: 0; left: 0;
-        background-color: rgba(0,0,0,0.3);
+        background-color: rgba(163, 60, 60, 0.3);
         width: 100%;
         height: 100%;
         z-index: 1;
@@ -40,7 +40,7 @@
         background: rgba(255,255,255,.9);
         padding: 10px 15px;
         border: 1px solid black;
-        background-color: aquamarine;
+        background-color: rgb(238, 157, 6);
 
         &:hover {
           background: rgba(255,255,255,1);

@@ -4,6 +4,7 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import { auth, handleUserProfile} from './firebase/utils';
 import { setCurrentUser } from './redux/User/user.actions'; 
 
+
 //layout
 import MainLayout from './layouts/MainLayout';
 import HomepageLayout from './layouts/HomepageLayout';
@@ -13,6 +14,9 @@ import Recovery from './pages/Recovery'
 import Homepage from './pages/Homepage';
 import Registration from './pages/Registration';
 import Login from './pages/Login/';
+import KontaktaOss from "./pages/kontaktaOss/kontaktaOss";
+import OmOss from "./pages/omOss/omOss";
+import PrivacyPolicy from "./pages/privacyPolicy/privacyPolicy"
 import './default.scss';
 
 
@@ -70,6 +74,24 @@ class  App extends Component {
               <Recovery/>
             </MainLayout>
           )}/>
+          <Route path="/kontakta-oss"
+           render={()=> currentUser ? <Redirect to="/"/> : (
+            <MainLayout>
+              <KontaktaOss/>
+            </MainLayout>
+          )} />
+          <Route path="/om-Oss"
+           render={()=> currentUser ? <Redirect to="/"/> : (
+            <MainLayout>
+              <OmOss/>
+            </MainLayout>
+          )} />
+          <Route path="/privacy-policy"
+           render={()=> currentUser ? <Redirect to="/"/> : (
+            <MainLayout>
+              <PrivacyPolicy/>
+            </MainLayout>
+          )} />
         </Switch>
       </div>
     );
