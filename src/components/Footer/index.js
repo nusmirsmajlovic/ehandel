@@ -13,7 +13,7 @@ const Footer = props => {
                <Link className="footer_a" to="/privacy-policy">Privcay policy</Link>
            </div>
            <div className="wrap">
-           Codic Consulting Drottninggatan 38, Göteborg, Västra Götalands län, 411 07, Sverige
+                Codic Consulting Drottninggatan 38, Göteborg, Västra Götalands län, 411 07, Sverige
            </div>
        </footer>
     );

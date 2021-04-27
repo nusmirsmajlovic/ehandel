@@ -92,6 +92,7 @@ class Signup extends Component{
                            value={dysplayName}
                            placeholder="Full name"
                            onChange={this.handleChange}
+                           className="input_field"
                         />
                         <Forminput
                            type="email"
@@ -99,6 +100,7 @@ class Signup extends Component{
                            value={email}
                            placeholder="Email"
                            onChange={this.handleChange}
+                           className="input_field"
                         />
                         <Forminput
                            type="password"
@@ -106,6 +108,7 @@ class Signup extends Component{
                            value={password}
                            placeholder="Password"
                            onChange={this.handleChange}
+                           className="input_field"
                         />
                         <Forminput
                            type="password"
@@ -113,6 +116,7 @@ class Signup extends Component{
                            value={confirmPassword}
                            placeholder="Confirm Password"
                            onChange={this.handleChange}
+                           className="input_field"
                         />
                         <Button type="submit">
                             Register

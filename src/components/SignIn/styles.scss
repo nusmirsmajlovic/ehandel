@@ -1,5 +1,5 @@
 .socialSignin {
-  margin: 0.5rem auto 0;
+  margin: 0 auto ;
 }
 
 .links {
@@ -10,4 +10,16 @@
   a {
     color: black;
   }
+}
+
+#resetText{
+  color: white;
+}
+
+#resetText:hover{
+  color: orange;
+}
+
+.input_field{
+  border-radius: 30px;
 }

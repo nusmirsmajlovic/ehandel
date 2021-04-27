@@ -6,10 +6,17 @@
     font-weight: 300;
     text-transform: uppercase;
     color: white;
-    background: black;
+    background: orange;
     padding: 1rem 10px;
     margin: 0 auto;
     border: 0;
     outline: none;
     cursor: pointer;
+    border-radius: 30px;
+    margin: 15px 0;
+  }
+
+  .btn:hover{
+    color: orange;
+    background-color: white;
   }

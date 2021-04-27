@@ -1,9 +1,10 @@
 .header {
-  height: 6.5rem;
+  height: 100px;
   box-shadow: 0 2px 4px 0 rgba(59, 57, 57, 0.1);
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #524E4E;
   
-  
-
   .wrap {
     height: 100%;
     display: flex;
@@ -11,17 +12,8 @@
     justify-content: space-between;
     align-items: center;
   
-    
-    
-
-
-    
-
     .logo {
       width: 13.0rem;
-      
-      
-
       img {
         display: block;
         width: 100%;
@@ -47,6 +39,7 @@
         display: inline-block;
         list-style-type: none;
         margin-right: 1.5rem;
+        color: white;
 
         &:last-child {
           margin-right: 0;
@@ -55,12 +48,15 @@
         a,span {
           font-size: 1.8rem;
           line-height: 1;
-          color:black;
+          color:white;
           text-decoration: none;
           text-transform: uppercase;
           cursor: pointer;
           margin-right: 30px;
         } 
+        a:hover,span:hover{
+          color: #F79100;
+        }
 
       }
 

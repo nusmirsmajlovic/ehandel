@@ -63,6 +63,7 @@ class SignIn extends Component{
                             value={email}
                             placeholder="email"
                             handleChange={this.handleChange}
+                            className="input_field"
                             />
 
                             <FormInput 
@@ -71,6 +72,7 @@ class SignIn extends Component{
                             value={password}
                             placeholder="password"
                             handleChange={this.handleChange}
+                            className="input_field"
                             />
 
                             <Button type="submit">
@@ -86,7 +88,7 @@ class SignIn extends Component{
                             </div>
 
                             <div className="links">
-                               <Link to="/recovery">
+                               <Link id="resetText" to="/recovery">
                                    Reset Password
                                </Link>
                             </div>

@@ -2,13 +2,15 @@
     display: block;
     width: 100%;
     max-width: 400px;
-    margin: 40px auto 60px;
-    border: 1px solid black;
+    margin: 40px auto;
 
     .wrap{
         padding: 10px;
-
+        background-color: #524E4E;
+        border-radius: 7px;
+        margin-top: 80px;
         h2{
+            color: white;
             font-size: 2.2rem;
             line-height: 1;
             font-weight: 400;
