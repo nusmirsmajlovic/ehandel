@@ -4,9 +4,9 @@ import Footer from './../components/Footer';
 
 const MainLayout = props =>{
     return(
-       <div >
+       <div style={{backgroundColor:"#1A1A1A"}}>
            <Header {...props}/>
-           <div className="main">
+           <div className="main" style={{ margin:"0", width: "100%", minHeight:"100vh"}}>
               {props.children}
            </div>
            <Footer/>

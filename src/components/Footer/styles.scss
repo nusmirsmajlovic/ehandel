@@ -1,8 +1,30 @@
 .footer {
+  background-color: #524E4E;
+  margin: 0;
     .wrap {
       max-width: 1280px;
       padding: 20px 50px;
       margin: 0 auto;
       
     }
+  }
+
+  .footer_link{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px 50px;
+    .footer_a{
+      color: white;
+    }
+    .footer_a:hover{
+      color: orange;
+    }
+    
+  }
+
+  .wrap{
+    color: white;
   }

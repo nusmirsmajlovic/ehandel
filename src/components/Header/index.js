@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector} from 'react-redux';
 import './styles.scss';
-import Logo from './../../assets/codic-logo.jpg';
+import Logo from './../../assets/codic-logo.png';
 import { Link } from 'react-router-dom';
 import {auth} from './../../firebase/utils';
 

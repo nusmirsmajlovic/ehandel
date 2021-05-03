@@ -1,63 +1,69 @@
-import React,{useState, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import { Link, withRouter} from 'react-router-dom';
-import {emailSignInStart,signInWithGoogle, resetAllAuthForms } from './../../redux/User/user.actions';
+import React,{Component} from 'react';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 import Buttons from './../forms/Button';
-
+import {signInWithGoogle, auth} from './../../firebase/utils';
 
 import AuthWrapper from './../AuthWrapper'
 import FormInput from './../forms/Forminput';
 import Button from './../forms/Button';
 
-const mapState = ({user}) => ({
-    signInSuccess:user.signInSuccess
-});
+const initialState ={
+    email:'',
+    password:''
+};
 
-const SignIn = props =>{
-    const {signInSuccess} = useSelector(mapState);
-    const dispatch= useDispatch();
-    const[email, setEmail] = useState('');
-    const[password, setPassword] = useState('');
-    useEffect(() =>{
-        if(signInSuccess){
-            resetForm('');
-            dispatch(resetAllAuthForms());
-            props.history.push('/');
-        }
-
-    },[signInSuccess]);
-
-    const resetForm = () => {
-        setEmail('');
-        setPassword('');
-    };
-
-      const  handleSubmit = e => {
-      e.preventDefault();
-      dispatch(emailSignInStart({email, password}));
+class SignIn extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            ...initialState
+        };
         
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    const handleGoogleSignIn = () => {
-        dispatch(signInWithGoogle());
+    handleChange(e) {
+        const{name, value}= e.target;
+        this.setState({
+            [name]: value
+        });
     }
 
-    const configAuthWrapper = {
+    handleSubmit = async e => {
+        e.preventDefault();
+        const {email, password}=  this.state;
+        try{
+
+            await auth.signInWithEmailAndPassword(email, password);
+            this.state({
+                ...initialState
+            });
+
+        }catch(err){
+        //console.log
+        }
+    }
+
+    render() {
+        const {email, password}=this.state;
+
+        const configAuthWrapper = {
             headline:'LogIn'
         };
         return(
             <AuthWrapper {...configAuthWrapper}>
                 <div className="formWrap">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={this.handleSubmit}>
 
                         <FormInput 
                             type="email"
                             name="email"
                             value={email}
                             placeholder="email"
-                            handleChange={e => setEmail(e.target.value)}
+                            handleChange={this.handleChange}
+                            className="input_field"
                             />
 
                             <FormInput 
@@ -65,7 +71,8 @@ const SignIn = props =>{
                             name="password"
                             value={password}
                             placeholder="password"
-                            handleChange={e => setPassword(e.target.value)}
+                            handleChange={this.handleChange}
+                            className="input_field"
                             />
 
                             <Button type="submit">
@@ -74,14 +81,14 @@ const SignIn = props =>{
 
                             <div className="socialSignin">
                                <div className="row">
-                                   <Buttons onClick={handleGoogleSignIn}>
+                                   <Buttons onClick={signInWithGoogle}>
                                        Sign In With Google
                                    </Buttons>
                                </div>
                             </div>
 
                             <div className="links">
-                               <Link to="/recovery">
+                               <Link id="resetText" to="/recovery">
                                    Reset Password
                                </Link>
                             </div>
@@ -91,6 +98,6 @@ const SignIn = props =>{
         );
     }
     
+}
 
-
-export default withRouter(SignIn);
+export default SignIn;
