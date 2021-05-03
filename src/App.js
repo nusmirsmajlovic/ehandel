@@ -23,16 +23,13 @@ import './default.scss';
 const App = props => {
   
   const dispatch = useDispatch();
+  //  useEffect(() =>{
+  //      
 
-  // useEffect(()=>{
-   
-
-  //  
-      
-  //   return () => {
-  //     authListener();
-  //   };
-  // }, []);
+  //      return () => {
+  //      authListener();
+  //    };
+  //  }, []);
 
   return (
       <div className="App">
