@@ -7,14 +7,14 @@ export function* getSnapShotFromUserAutuh (user){
     try{ 
          
                 const userRef = yield call (handleUserProfile ,{userAuth:user});
-                  userRef.onSnapshot(snapshot => {
-                     dispatch(setCurrentUser({
-                      id:snapshot.id,
-                      ...snapshot.data()
-                  }));
-              })
-
-    }catch(err){
+                const snapshot = yield userRef.get();
+                yield put(
+                signInSuccess({
+                    id:snapshot.id,
+                    ...snapshot.data()
+                })
+            );
+          }catch(err){
         //console.log(err);
     }
 }
@@ -24,9 +24,7 @@ export function* emailSignIn({payload:{email, password}}) {
 
        const {user} = yield auth.signInWithEmailAndPassword(email, password);
        yield getSnapShotFromUserAutuh(user)
-        //   yield put(
-        //       signInSuccess()
-        //   )
+       
         
         } catch (err) {
                 //console.log
