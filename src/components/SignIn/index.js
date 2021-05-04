@@ -12,22 +12,21 @@ import FormInput from './../forms/Forminput';
 import Button from './../forms/Button';
 
 const mapState = ({user}) => ({
-    signInSuccess:user.signInSuccess
+    currentUser:user.currentUser
 });
 
 const SignIn = props =>{
-    const {signInSuccess} = useSelector(mapState);
+    const {currentUser} = useSelector(mapState);
     const dispatch= useDispatch();
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     useEffect(() =>{
-        if(signInSuccess){
+        if(currentUser){
             resetForm('');
-            dispatch(resetAllAuthForms());
             props.history.push('/');
         }
 
-    },[signInSuccess]);
+    },[currentUser]);
 
     const resetForm = () => {
         setEmail('');
