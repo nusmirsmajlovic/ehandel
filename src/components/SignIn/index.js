@@ -1,92 +1,82 @@
-import React,{Component} from 'react';
-import { Link } from 'react-router-dom';
+import React,{useState, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import { Link, withRouter} from 'react-router-dom';
+import {emailSignInStart,signInWithGoogle, resetAllAuthForms } from './../../redux/User/user.actions';
 import './styles.scss';
-
+ 
 import Buttons from './../forms/Button';
-import {signInWithGoogle, auth} from './../../firebase/utils';
-
+ 
 import AuthWrapper from './../AuthWrapper'
 import FormInput from './../forms/Forminput';
 import Button from './../forms/Button';
-
-const initialState ={
-    email:'',
-    password:''
-};
-
-class SignIn extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            ...initialState
-        };
-        
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(e) {
-        const{name, value}= e.target;
-        this.setState({
-            [name]: value
-        });
-    }
-
-    handleSubmit = async e => {
-        e.preventDefault();
-        const {email, password}=  this.state;
-        try{
-
-            await auth.signInWithEmailAndPassword(email, password);
-            this.state({
-                ...initialState
-            });
-
-        }catch(err){
-        //console.log
+ 
+const mapState = ({user}) => ({
+    currentUser:user.currentUser
+});
+ 
+const SignIn = props =>{
+    const {currentUser} = useSelector(mapState);
+    const dispatch= useDispatch();
+    const[email, setEmail] = useState('');
+    const[password, setPassword] = useState('');
+    useEffect(() =>{
+        if(currentUser){
+            resetForm('');
+            props.history.push('/');
         }
+ 
+    },[currentUser]);
+ 
+    const resetForm = () => {
+        setEmail('');
+        setPassword('');
+    };
+ 
+    const handleSubmit = e => {
+        e.preventDefault();
+        dispatch(emailSignInStart({ email, password }));
+      }
+ 
+    const handleGoogleSignIn = () => {
+        dispatch(signInWithGoogle());
     }
-
-    render() {
-        const {email, password}=this.state;
-
-        const configAuthWrapper = {
+ 
+    const configAuthWrapper = {
             headline:'LogIn'
         };
         return(
             <AuthWrapper {...configAuthWrapper}>
                 <div className="formWrap">
-                    <form onSubmit={this.handleSubmit}>
-
+                    <form onSubmit={handleSubmit}>
+ 
                         <FormInput 
                             type="email"
                             name="email"
                             value={email}
                             placeholder="email"
-                            handleChange={this.handleChange}
-                            className="input_field"
+                            handleChange={e => setEmail(e.target.value)}
                             />
-
+ 
                             <FormInput 
                             type="password"
                             name="password"
                             value={password}
                             placeholder="password"
-                            handleChange={this.handleChange}
-                            className="input_field"
+                            handleChange={e => setPassword(e.target.value)}
                             />
-
+ 
                             <Button type="submit">
                                 LogIn
                             </Button>
-
+ 
                             <div className="socialSignin">
                                <div className="row">
-                                   <Buttons onClick={signInWithGoogle}>
+                                   <Buttons onClick={handleGoogleSignIn}>
                                        Sign In With Google
                                    </Buttons>
                                </div>
                             </div>
-
+ 
                             <div className="links">
                                <Link id="resetText" to="/recovery">
                                    Reset Password
@@ -98,6 +88,5 @@ class SignIn extends Component{
         );
     }
     
-}
-
-export default SignIn;
+ 
+export default withRouter(SignIn)
