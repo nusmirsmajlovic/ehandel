@@ -6,9 +6,9 @@ import { signInSuccess} from './user.actions';
 export function* getSnapShotFromUserAutuh (user){
     try{ 
          
-                const userRef = yield call (handleUserProfile ,{userAuth:user});
-                const snapshot = yield userRef.get();
-                yield put(
+        const userRef = yield call (handleUserProfile ,{userAuth:user});
+        const snapshot = yield userRef.get();
+            yield put(
                 signInSuccess({
                     id:snapshot.id,
                     ...snapshot.data()
@@ -21,9 +21,9 @@ export function* getSnapShotFromUserAutuh (user){
 
 export function* emailSignIn({payload:{email, password}}) {
     try {
-
-       const {user} = yield auth.signInWithEmailAndPassword(email, password);
-       yield getSnapShotFromUserAutuh(user)
+          const {user}= yield auth.signInWithEmailAndPassword(email, password);
+          yield getSnapShotFromUserAutuh(user);
+           
        
         
         } catch (err) {
@@ -32,7 +32,7 @@ export function* emailSignIn({payload:{email, password}}) {
 }
 
 export function* onEmailSignInStart (){
-    yield takeLatest(userTypes.EMAIL_SIGN_IN_START)
+    yield takeLatest(userTypes.EMAIL_SIGN_IN_START, emailSignIn)
 }
 
 export default function* userSagas(){
