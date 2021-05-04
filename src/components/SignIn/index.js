@@ -80,7 +80,7 @@ const SignIn = props =>{
 
                             <div className="links">
                                <Link id="resetText" to="/recovery">
-                                   Reset Password
+                                   Reset Passwordd
                                </Link>
                             </div>
                      </form>
