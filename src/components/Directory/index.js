@@ -20,7 +20,7 @@ const Directory = props => {
         </div>
         
         <a>
-            eHandel
+            TILL VÅRA PRODUKTER
         </a>   
       </div>
     </div>
