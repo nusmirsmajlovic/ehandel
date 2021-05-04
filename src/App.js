@@ -1,8 +1,7 @@
 import React,{useEffect} from 'react';
 import { useDispatch } from 'react-redux';
-import {Switch, Route, Redirect} from 'react-router-dom';
-import { auth, handleUserProfile} from './firebase/utils';
-import { setCurrentUser } from './redux/User/user.actions'; 
+import {Switch, Route} from 'react-router-dom';
+import { checkUserSession } from './redux/User/user.actions'; 
 
 import WithAuth from './hoc/withAuth';
 
@@ -23,13 +22,10 @@ import './default.scss';
 const App = props => {
   
   const dispatch = useDispatch();
-  //  useEffect(() =>{
-  //      
-
-  //      return () => {
-  //      authListener();
-  //    };
-  //  }, []);
+   useEffect(() =>{
+       dispatch(checkUserSession());
+     
+   }, []);
 
   return (
       <div className="App">
