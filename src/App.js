@@ -16,6 +16,8 @@ import Homepage from './pages/Homepage';
 import Registration from './pages/Registration';
 import Login from './pages/Login/';
 import Dashboard from './pages/Dashboard';
+import KontaktaOss from "./pages/kontaktaOss/kontaktaOss";
+import OmOss from "./pages/omOss/omOss";
 import './default.scss';
 
 
@@ -59,6 +61,18 @@ const App = props => {
                </MainLayout>
             </WithAuth>
           )}/>
+                <Route path="/kontakta-oss"
+           render={()=> currentUser ? <Redirect to="/"/> : (
+            <MainLayout>
+              <KontaktaOss/>
+            </MainLayout>
+          )} />
+          <Route path="/om-Oss"
+           render={()=>  (
+            <MainLayout>
+              <OmOss/>
+            </MainLayout>
+          )} />
         </Switch>
       </div>
     );
