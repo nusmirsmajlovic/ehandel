@@ -11,7 +11,18 @@ export const signInSuccess = user =>({
     payload:user
 });
 
+export const checkUserSession = user =>({
+    type:userTypes.CHECK_USER_SESSION,
+    payload:user
+});
 
+export const signOutUserStart = () => ({
+    type: userTypes.SIGN_OUT_USER_START
+  });
+  
+  export const signOutUserSuccess = () => ({
+    type: userTypes.SIGN_OUT_USER_SUCCESS
+  });
 
 
 
