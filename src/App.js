@@ -18,15 +18,17 @@ import Login from './pages/Login/';
 import Dashboard from './pages/Dashboard';
 import KontaktaOss from "./pages/kontaktaOss/kontaktaOss";
 import OmOss from "./pages/omOss/omOss";
+
+import PrivacyPolicy from "./pages/privacyPolicy/privacyPolicy"
 import './default.scss';
 
 
 const App = props => {
-  
+
   const dispatch = useDispatch();
    useEffect(() =>{
        dispatch(checkUserSession());
-     
+
    }, []);
 
   return (
@@ -66,17 +68,22 @@ const App = props => {
               <KontaktaOss/>
             </MainLayout>
           )} />
-          <Route path="/om-Oss"
-           render={()=>  (
+          <Route path="/om-Oss"render={()=>  (
             <MainLayout>
               <OmOss/>
+            </MainLayout>
+          )} />
+           <Route path="/privacy-policy"
+           render={()=> (
+            <MainLayout>
+              <PrivacyPolicy/>
             </MainLayout>
           )} />
         </Switch>
       </div>
     );
   }
-  
+
 
 
 export default App;

@@ -1,22 +1,22 @@
 .btn {
-    display: block;
-    width: 100%;
-    font-size: 1.8rem;
-    line-height: 1;
-    font-weight: 300;
-    text-transform: uppercase;
-    color: white;
-    background: orange;
-    padding: 1rem 10px;
-    margin: 0 auto;
-    border: 0;
-    outline: none;
-    cursor: pointer;
-    border-radius: 30px;
-    margin: 15px 0;
-  }
+  display: block;
+  width: 100%;
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: white;
+  background: orange;
+  padding: 1rem 10px;
+  margin: 0 auto;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: 30px;
+  margin: 15px 0;
+}
 
-  .btn:hover{
-    color: orange;
-    background-color: white;
-  }
+.btn:hover{
+  color: orange;
+  background-color: white;
+}

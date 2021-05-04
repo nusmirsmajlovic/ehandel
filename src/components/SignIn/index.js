@@ -3,18 +3,17 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Link, withRouter} from 'react-router-dom';
 import {emailSignInStart,signInWithGoogle, resetAllAuthForms } from './../../redux/User/user.actions';
 import './styles.scss';
-
+ 
 import Buttons from './../forms/Button';
-
-
+ 
 import AuthWrapper from './../AuthWrapper'
 import FormInput from './../forms/Forminput';
 import Button from './../forms/Button';
-
+ 
 const mapState = ({user}) => ({
     currentUser:user.currentUser
 });
-
+ 
 const SignIn = props =>{
     const {currentUser} = useSelector(mapState);
     const dispatch= useDispatch();
@@ -25,23 +24,23 @@ const SignIn = props =>{
             resetForm('');
             props.history.push('/');
         }
-
+ 
     },[currentUser]);
-
+ 
     const resetForm = () => {
         setEmail('');
         setPassword('');
     };
-
+ 
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(emailSignInStart({ email, password }));
       }
-
+ 
     const handleGoogleSignIn = () => {
         dispatch(signInWithGoogle());
     }
-
+ 
     const configAuthWrapper = {
             headline:'LogIn'
         };
@@ -49,7 +48,7 @@ const SignIn = props =>{
             <AuthWrapper {...configAuthWrapper}>
                 <div className="formWrap">
                     <form onSubmit={handleSubmit}>
-
+ 
                         <FormInput 
                             type="email"
                             name="email"
@@ -57,7 +56,7 @@ const SignIn = props =>{
                             placeholder="email"
                             handleChange={e => setEmail(e.target.value)}
                             />
-
+ 
                             <FormInput 
                             type="password"
                             name="password"
@@ -65,11 +64,11 @@ const SignIn = props =>{
                             placeholder="password"
                             handleChange={e => setPassword(e.target.value)}
                             />
-
+ 
                             <Button type="submit">
                                 LogIn
                             </Button>
-
+ 
                             <div className="socialSignin">
                                <div className="row">
                                    <Buttons onClick={handleGoogleSignIn}>
@@ -77,7 +76,7 @@ const SignIn = props =>{
                                    </Buttons>
                                </div>
                             </div>
-
+ 
                             <div className="links">
                                <Link id="resetText" to="/recovery">
                                    Reset Password
@@ -89,6 +88,5 @@ const SignIn = props =>{
         );
     }
     
-
-
-export default withRouter(SignIn);
+ 
+export default withRouter(SignIn)
