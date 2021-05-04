@@ -61,14 +61,12 @@ const App = props => {
                </MainLayout>
             </WithAuth>
           )}/>
-                <Route path="/kontakta-oss"
-           render={()=> currentUser ? <Redirect to="/"/> : (
+          <Route path="/kontakta-oss"render={()=>  (
             <MainLayout>
               <KontaktaOss/>
             </MainLayout>
           )} />
-          <Route path="/om-Oss"
-           render={()=>  (
+          <Route path="/om-Oss"render={()=>  (
             <MainLayout>
               <OmOss/>
             </MainLayout>
