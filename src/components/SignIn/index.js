@@ -34,11 +34,10 @@ const SignIn = props =>{
         setPassword('');
     };
 
-      const  handleSubmit = e => {
-      e.preventDefault();
-      dispatch(emailSignInStart({email, password}));
-        
-    }
+    const handleSubmit = e => {
+        e.preventDefault();
+        dispatch(emailSignInStart({ email, password }));
+      }
 
     const handleGoogleSignIn = () => {
         dispatch(signInWithGoogle());
