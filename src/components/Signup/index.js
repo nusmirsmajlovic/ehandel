@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import './styles.scss';
 
 import {auth, handleUserProfile} from './../../firebase/utils';
@@ -8,7 +8,7 @@ import Forminput from './../forms/Forminput';
 import Button from './../forms/Button';
 
 const initialState = {
-    dysplayName:'',
+    displayName:'',
     email:'',
     password:'',
     confirmPassword:'',
@@ -16,32 +16,28 @@ const initialState = {
 };
 
 
-class Signup extends Component{
-    constructor(props) {
-        super(props);
-        this.state={
-            ...initialState
-        };
-        this.handleChange = this.handleChange.bind(this);
-    }
+const  Signup = props =>{
+    const [displayName,setDisplayName] = useState("");
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
+    const [confirmPassword,setConfirmPassword] = useState("");
+    const [errors, setErrors] = useState([]);
 
-
-    handleChange (e){
-        const {name, value} = e.target;
-        this.setState({
-            [name]:value
-        });
-    }
-
-    handleFormSubmit = async event =>{
+    const reset = () => {
+        setDisplayName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setErrors([]);
+    };
+   
+     const handleFormSubmit = async event =>{
         event.preventDefault();
-        const {dysplayName, email, password, confirmPassword} = this.state
+        
 
         if(password !== confirmPassword ){
         const err = ['Password dont match'];
-        this.setState({
-            errors:err
-        });
+        setErrors(err);
         return;
         }
 
@@ -49,11 +45,9 @@ class Signup extends Component{
 
           const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
-          await handleUserProfile(user, {dysplayName});
+          await handleUserProfile(user, {displayName});
 
-          this.setState({
-              ...initialState
-          });
+         reset();
 
         }
         catch(err){
@@ -61,8 +55,8 @@ class Signup extends Component{
         }
     }
 
-    render(){
-        const {dysplayName, email, password, confirmPassword, errors} = this.state; 
+    
+        
           
         const configAuthWrapper = {
             headline:'Ragistration'
@@ -84,14 +78,14 @@ class Signup extends Component{
                     )}
 
                 <div className="formWrap">  
-                    <form onSubmit={this.handleFormSubmit}>
+                    <form onSubmit={handleFormSubmit}>
                         
                         <Forminput
                            type="text"
-                           name="dysplayName"
-                           value={dysplayName}
+                           name="displayName"
+                           value={displayName}
                            placeholder="Full name"
-                           onChange={this.handleChange}
+                           handleChange={e => setDisplayName(e.target.value)}
                            className="input_field"
                         />
                         <Forminput
@@ -99,7 +93,7 @@ class Signup extends Component{
                            name="email"
                            value={email}
                            placeholder="Email"
-                           onChange={this.handleChange}
+                           handleChange={e => setEmail(e.target.value)}
                            className="input_field"
                         />
                         <Forminput
@@ -107,7 +101,7 @@ class Signup extends Component{
                            name="password"
                            value={password}
                            placeholder="Password"
-                           onChange={this.handleChange}
+                           handleChange={e => setPassword(e.target.value)}
                            className="input_field"
                         />
                         <Forminput
@@ -115,7 +109,7 @@ class Signup extends Component{
                            name="confirmPassword"
                            value={confirmPassword}
                            placeholder="Confirm Password"
-                           onChange={this.handleChange}
+                           handleChange={e => setConfirmPassword(e.target.value)}
                            className="input_field"
                         />
                         <Button type="submit">
@@ -128,6 +122,6 @@ class Signup extends Component{
             </AuthWrapper>
         );
     }
-}
+
 
 export default Signup;
