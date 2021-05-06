@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import "./styles.scss";
-
-const Admin = props
-=======
 import React, { useState, useEffect } from 'react';
 import Modal from './../../components/Modal';
 import FormInput from '../../components/forms/FormInput';
@@ -101,4 +95,3 @@ const Admin = props => {
   );
 }
 export default Admin;
->>>>>>> 7969109b9728990448f80b13cd8c0df9ef714951
