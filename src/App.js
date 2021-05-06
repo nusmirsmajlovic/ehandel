@@ -11,6 +11,8 @@ import WithAdminAuth from './hoc/withAdminAuth';
 //layout
 import MainLayout from './layouts/MainLayout';
 import HomepageLayout from './layouts/HomepageLayout';
+import AdminLayout from './layouts/AdminLayout';
+import DashboardLayout from './layouts/DashboardLayout';
 
 //pages
 import Recovery from './pages/Recovery'
@@ -82,13 +84,21 @@ const App = props => {
               <PrivacyPolicy/>
             </MainLayout>
           )} />
-          <Route path="/admin" render={() =>(
-             <WithAdminAuth>
-             <MainLayout>
-              <Admin/>
-            </MainLayout>
-            </WithAdminAuth>
-          )}/>
+         <Route path="/dashboard" render={() => (
+          <WithAuth>
+            <DashboardLayout>
+              <Dashboard />
+            </DashboardLayout>
+          </WithAuth>
+        )} />
+        
+        <Route path="/admin" render={() => (
+          <WithAdminAuth>
+            <AdminLayout>
+              <Admin />
+            </AdminLayout>
+          </WithAdminAuth>
+        )} />
         </Switch>
       </div>
     );
