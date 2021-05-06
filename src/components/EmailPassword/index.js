@@ -5,7 +5,7 @@ import { resetPasswordStart, resetUserState } from './../../redux/User/user.acti
 import './styles.scss';
 
 import AuthWrapper from './../AuthWrapper';
-import FomInput from './../forms/Forminput';
+import FomInput from '../forms/FormInput';
 import Button from './../forms/Button';
 
 
