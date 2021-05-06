@@ -1,10 +1,12 @@
 import React,{useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import {Switch, Route} from 'react-router-dom';
-import { checkUserSession } from './redux/User/user.actions'; 
+import { checkUserSession } from './redux/User/user.actions';
+
+import AdminToolbar from './components/AdminToolbar';
 
 import WithAuth from './hoc/withAuth';
-
+import WithAdminAuth from './hoc/withAdminAuth';
 
 //layout
 import MainLayout from './layouts/MainLayout';
@@ -18,7 +20,7 @@ import Login from './pages/Login/';
 import Dashboard from './pages/Dashboard';
 import KontaktaOss from "./pages/kontaktaOss/kontaktaOss";
 import OmOss from "./pages/omOss/omOss";
-
+import Admin from './pages/Admin';
 import PrivacyPolicy from "./pages/privacyPolicy/privacyPolicy"
 import './default.scss';
 
@@ -33,7 +35,8 @@ const App = props => {
 
   return (
       <div className="App">
-       <Switch>
+        <AdminToolbar/>
+        <Switch>
           <Route exact path="/" render={()=>(
             <HomepageLayout>
               <Homepage/>
@@ -79,6 +82,13 @@ const App = props => {
               <PrivacyPolicy/>
             </MainLayout>
           )} />
+          <Route path="/admin" render={() =>(
+             <WithAdminAuth>
+             <MainLayout>
+              <Admin/>
+            </MainLayout>
+            </WithAdminAuth>
+          )}/>
         </Switch>
       </div>
     );
