@@ -7,8 +7,8 @@ class PrivacyPolicy extends Component{
     render(){
         return(
             <div>
-                <h1>PrivacyPolicy</h1>
-                <table>
+                <h1 className="omOssColor">PrivacyPolicy</h1>
+                <table className="omOssColor">
                     <tr>
                         <td>Nummer :</td>
                         <td>07526511545</td>

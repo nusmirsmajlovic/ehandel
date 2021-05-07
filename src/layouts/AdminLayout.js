@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signOutUserStart } from './../redux/User/user.actions';
-
 import Header from './../components/Header';
 import VerticalNav from './../components/VerticalNav';
 import Footer from './../components/Footer';
+import "./controlPanel.scss";
 
 const AdminLayout = props => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const AdminLayout = props => {
   return (
     <div className="adminLayout">
       <Header {...props} />
-      <div className="controlPanel">
+      <div className="controlPanel" >
         <div className="sidebar">
           <VerticalNav>
             <ul>
@@ -34,7 +34,7 @@ const AdminLayout = props => {
             </ul>
           </VerticalNav>
         </div>
-        <div className="content">
+        <div className="content"> {/* this div takes 70% from the origin div width */}
           {props.children}
         </div>
       </div>
