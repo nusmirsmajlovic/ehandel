@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {addProductStart} from './../../redux/Products/products.actions';
 import Modal from './../../components/Modal';
 import FormInput from '../../components/forms/FormInput';
 import FormSelect from './../../components/forms/FormSelect';
@@ -8,6 +10,7 @@ import './styles.scss';
 
 
 const Admin = props => {
+  const dispatch=useDispatch();
   const [hideModal, setHideModal] = useState(true);
   const [productCategory, setProductCategory] = useState('mens');
   const [productName, setProductName] = useState('');
