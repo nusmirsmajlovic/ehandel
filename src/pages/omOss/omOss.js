@@ -7,8 +7,8 @@ class OmOss extends Component{
     render(){
         return(
             <div>
-                <h1>Om oss</h1>
-                <table>
+                <h1 className="omOssColor">Om oss</h1>
+                <table className="omOssColor">
                     <tr>
                         <td>Nummer :</td>
                         <td>07526511545</td>
