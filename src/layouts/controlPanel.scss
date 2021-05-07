@@ -1,0 +1,9 @@
+.controlPanel{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 30% 70%;
+
+    .content{
+        border-left: solid lightgray 2px;
+    }
+}
