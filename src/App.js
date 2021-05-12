@@ -16,7 +16,9 @@ import DashboardLayout from './layouts/DashboardLayout';
 
 //pages
 import Recovery from './pages/Recovery'
+
 import Homepage from './pages/Homepage';
+import Search from "./pages/Search";
 import Registration from './pages/Registration';
 import Login from './pages/Login/';
 import Dashboard from './pages/Dashboard';
@@ -36,7 +38,7 @@ const App = props => {
    }, []);
 
   return (
-      <div className="App">
+      <div className="App" style={{minHeight:"100vh"}}>
         <AdminToolbar/>
         <Switch>
           <Route exact path="/" render={()=>(
@@ -44,6 +46,12 @@ const App = props => {
               <Homepage/>
             </HomepageLayout>
           )}/>
+          <Route path="/search" render={() =>(
+            <MainLayout>
+            <Search/>
+            </MainLayout>
+
+          )} />
           <Route path="/registration"
           render={()=>(
             <MainLayout>

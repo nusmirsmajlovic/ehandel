@@ -6,7 +6,7 @@ import './styles.scss';
 const Directory = props => {
   return (
     <div className="directory">
-      <div className="wrap" style={{backgroundImage: `url(${BG})`}}>
+      <div className="wrap" >
         <div className="title_box">
           <h1>Codic Online Shop</h1>
           <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
