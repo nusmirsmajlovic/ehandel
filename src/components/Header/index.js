@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch} from 'react-redux';
 import {signOutUserStart} from './../../redux/User/user.actions';
 import './styles.scss';
 import Logo from './../../assets/codic-logo.png';
-import { Link } from 'react-router-dom';
+
 
 
 const mapState = ({ user }) => ({
@@ -27,6 +28,22 @@ const signOut = () =>{
                     <img src={Logo} alt="Codic" />
                     </Link>
                 </div>
+                <nav>
+                <ul>
+                    <li>
+                        <Link to="/">
+                            Home
+                        </Link>
+
+                    </li>
+                    <li>
+                        <Link to="/search">
+                            Search
+                        </Link>
+
+                    </li>
+                </ul>
+                </nav>
 
                 <div className="callToActions">
 

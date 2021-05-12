@@ -6,9 +6,9 @@ const MainLayout = props =>{
     return(
        <div style={{backgroundColor:"#1A1A1A"}}>
            <Header {...props}/>
-           <div className="main" style={{ margin:"0", width: "100%", minHeight:"100vh"}}>
-              {props.children}
-           </div>
+            <div className="main" style={{ margin:"0", width: "100%"}}>
+                {props.children}
+            </div>
            <Footer/>
        </div>
     );
