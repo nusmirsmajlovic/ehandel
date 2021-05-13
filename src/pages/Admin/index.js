@@ -6,6 +6,7 @@ import FormInput from './../../components/forms/FormInput';
 import FormSelect from './../../components/forms/FormSelect';
 import Button from './../../components/forms/Button';
 import LoadMore from './../../components/LoadMore';
+import CKEditor from 'react-ckeditor-component';
 import './styles.scss';
 
 const mapState = ({ productsData }) => ({
@@ -16,11 +17,12 @@ const Admin = props => {
   const { products } = useSelector(mapState);
   const dispatch = useDispatch();
   const [hideModal, setHideModal] = useState(true);
-  const [productCategory, setProductCategory] = useState('mens');
+  const [productCategory, setProductCategory] = useState('böcker');
   const [productName, setProductName] = useState('');
   const [productThumbnail, setProductThumbnail] = useState('');
   const [productPrice, setProductPrice] = useState(0);
   const [productDesc, setProductDesc] = useState('');
+  
 
   const { data, queryDoc, isLastPage } = products;
 
@@ -39,7 +41,7 @@ const Admin = props => {
 
   const resetForm = () => {
     setHideModal(true);
-    setProductCategory('mens');
+    setProductCategory('böcker');
     setProductName('');
     setProductThumbnail('');
     setProductPrice(0);
@@ -130,7 +132,11 @@ const Admin = props => {
               step="0.01"
               value={productPrice}
               handleChange={e => setProductPrice(e.target.value)}
+             />
+            <CKEditor  onChange={evt => setProductDesc(evt.editor.getData())}
             />
+
+             <br />  
 
         
 

@@ -82,6 +82,6 @@ export default function* productsSagas() {
     call(onAddProductStart),
     call(onFetchProductsStart),
     call(onDeleteProductStart),
-   // call(onFetchProductStart),
+    call(onFetchProductStart),
   ])
 }

@@ -25,6 +25,7 @@ import Dashboard from './pages/Dashboard';
 import KontaktaOss from "./pages/kontaktaOss/kontaktaOss";
 import OmOss from "./pages/omOss/omOss";
 import Admin from './pages/Admin';
+import ProductDetails from './pages/ProductDetails';
 import PrivacyPolicy from "./pages/privacyPolicy/privacyPolicy"
 import './default.scss';
 
@@ -50,8 +51,17 @@ const App = props => {
             <MainLayout>
             <Search/>
             </MainLayout>
-
           )} />
+           <Route path="/search/:filterType" render={() => (
+          <MainLayout>
+            <Search />
+          </MainLayout>
+        )} />
+        <Route path="/product/:productID" render={() => (
+          <MainLayout>
+            <ProductDetails />
+          </MainLayout>
+        )} />
           <Route path="/registration"
           render={()=>(
             <MainLayout>
