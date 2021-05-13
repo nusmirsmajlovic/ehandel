@@ -55,7 +55,6 @@ const mapState = ({ user }) => ({
         confirmPassword
       }));
     }
-  
     const configAuthWrapper = {
       headline: 'Registration'
     };
