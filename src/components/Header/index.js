@@ -2,19 +2,21 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch} from 'react-redux';
 import {signOutUserStart} from './../../redux/User/user.actions';
+import { selectCartItemsCount } from './../../redux/Cart/cart.selectors';
 import './styles.scss';
 import Logo from './../../assets/codic-logo.png';
 
 
 
-const mapState = ({ user }) => ({
-    currentUser: user.currentUser
+const mapState = ( state ) => ({
+    currentUser: state.user.currentUser,
+    totalNumCartItems: selectCartItemsCount(state)
 });
 
 
 const Header = props => {
     const dispatch = useDispatch();
-    const {currentUser} = useSelector(mapState);
+    const {currentUser, totalNumCartItems} = useSelector(mapState);
 
 const signOut = () =>{
     dispatch(signOutUserStart());
@@ -47,35 +49,46 @@ const signOut = () =>{
 
                 <div className="callToActions">
 
-                    {currentUser && (
-                        <ul>
+                    <ul>
+                    <li>
+              <Link to="/cart">
+                Your Cart ({totalNumCartItems})
+              </Link>
+            </li>
+                    {currentUser && [
+                        
                             <li>
                               <Link to="/dashboard">
                                  My Account
                                </Link>
-                            </li>
+                            </li>,
                             <li>
                                 <span onClick={() => signOut()}>
                                     LogOut
                                 </span>
                             </li>
-                        </ul>
-                    )}
-
-                    {!currentUser &&(
-                          <ul>
+                        
+                    ]}
+                       {!currentUser &&[
+                          
                             <li>
                               <Link to="/registration">
                                   REGISTER
                                </Link>
-                            </li>
+                            </li>,
                           <li>
                               <Link to="/login">
                                    LOGIN
                               </Link>
                            </li>
-                     </ul> 
-                    )}
+                     
+                       ]}
+
+                    </ul>
+
+                   
+
+                 
                   
                 </div>
             </div>
