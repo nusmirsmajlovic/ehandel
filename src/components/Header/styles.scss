@@ -1,20 +1,22 @@
 .header {
-  height: 6.5rem;
-  box-shadow: 0 2px 4px 0 rgba(235, 230, 230, 0.877);
+  height: 80px;
+  //box-shadow: 0 2px 4px 0 rgba(235, 230, 230, 0.877);
+  background-color: #554444;
+  padding: 10px;
+  
 
   .wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
     position: relative;
     height: 100%;
     max-width: 1450px;
     margin: 0 auto;
 
     .logo {
-      width: 13.0rem;
-      position: absolute;
-      top: 50%; left: 10px;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      transform: translateY(-50%);
+      width: 100px;
 
       img {
         display: block;
@@ -23,48 +25,22 @@
       }
     }
 
-    nav {
-      display: block;
-      width: 100%;
-      height: 100%;
-      padding: 0;
-      margin: 0;
+    .header_nav_center{
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+    .header_nav_center *{
+      color: white;
+      padding: 0 10px;
+    }
 
-      ul, ul li {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        color: aqua;
-      }
-
-      ul {
-        text-align: center;
-
-        li {
-          display: inline-block;
-          margin: 0 1rem;
-          list-style-type: none;
-
-          a {
-            font-size: 1.8rem;
-            line-height: 6.5rem;
-            vertical-align: middle;
-            color: rgb(209, 190, 190);
-            text-decoration: none;
-            text-transform: uppercase;
-            cursor: pointer;
-          }
-        }
-      }
+    .header_nav_center *:hover, .callToActions *:hover{
+      color: orange;
     }
 
     .callToActions {
-      position: absolute;
-      top: 50%; right: 10px;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      transform: translateY(-50%);
-
+      box-sizing: border-box;
       i {
         display: none;
       }

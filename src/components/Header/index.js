@@ -27,69 +27,53 @@ const signOut = () =>{
             <div className="wrap">
                 <div className="logo">
                     <Link to="/">
-                    <img src={Logo} alt="Codic" />
+                        <img src={Logo} alt="Codic" />
                     </Link>
                 </div>
-                <nav>
-                <ul>
-                    <li>
-                        <Link to="/">
-                            Home
-                        </Link>
 
-                    </li>
-                    <li>
-                        <Link to="/search">
-                            Search
-                        </Link>
-
-                    </li>
-                </ul>
-                </nav>
+                <div className="header_nav_center">
+                    <span><Link to="/">Home</Link></span>
+                    <span><Link to="/search">Search</Link></span>
+                </div>
 
                 <div className="callToActions">
-
                     <ul>
-                    <li>
-              <Link to="/cart">
-                Your Cart ({totalNumCartItems})
-              </Link>
-            </li>
-                    {currentUser && [
+                        <li>
+                            <Link to="/cart">
+                                Your Cart ({totalNumCartItems})
+                            </Link>
+                        </li>
+                            {currentUser && [
                         
-                            <li>
-                              <Link to="/dashboard">
-                                 My Account
-                               </Link>
-                            </li>,
-                            <li>
-                                <span onClick={() => signOut()}>
-                                    LogOut
-                                </span>
-                            </li>
+                                <li>
+                                <Link to="/dashboard">
+                                    My Account
+                                </Link>
+                                </li>,
+                                <li>
+                                    <span onClick={() => signOut()}>
+                                        LogOut
+                                    </span>
+                                </li>
                         
-                    ]}
-                       {!currentUser &&[
-                          
-                            <li>
-                              <Link to="/registration">
-                                  REGISTER
-                               </Link>
-                            </li>,
-                          <li>
-                              <Link to="/login">
-                                   LOGIN
-                              </Link>
-                           </li>
-                     
-                       ]}
+                            ]}
+                            {!currentUser &&[
+                                
+                                    <li>
+                                    <Link to="/registration">
+                                        REGISTER
+                                    </Link>
+                                    </li>,
+                                <li>
+                                    <Link to="/login">
+                                        LOGIN
+                                    </Link>
+                                </li>
+                            
+                            ]}
 
-                    </ul>
+                        </ul>
 
-                   
-
-                 
-                  
                 </div>
             </div>
 
