@@ -25,6 +25,7 @@ import Dashboard from './pages/Dashboard';
 import KontaktaOss from "./pages/kontaktaOss/kontaktaOss";
 import OmOss from "./pages/omOss/omOss";
 import Admin from './pages/Admin';
+import Cart from './pages/Cart';
 import ProductDetails from './pages/ProductDetails';
 import PrivacyPolicy from "./pages/privacyPolicy/privacyPolicy"
 import './default.scss';
@@ -62,8 +63,12 @@ const App = props => {
             <ProductDetails />
           </MainLayout>
         )} />
-          <Route path="/registration"
-          render={()=>(
+        <Route path="/cart" render={() => (
+          <MainLayout>
+            <Cart />
+          </MainLayout>
+        )} />
+          <Route path="/registration" render={()=>(
             <MainLayout>
               <Registration/>
             </MainLayout>
