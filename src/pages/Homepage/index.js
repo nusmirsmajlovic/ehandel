@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import Directory from "./../../components/Directory";
 import "./styles.scss";
 import BG from './../../assets/BG.jpg';
@@ -20,9 +21,11 @@ const Homepage = (props) => {
           </p>
         </div>
         
-        <button id="TILL_Producter">
-            TILL VÅRA PRODUKTER
-        </button>   
+        <Link to="/search">
+          <button id="TILL_Producter">  
+            TILL VÅRA PRODUKTER         
+          </button>   
+        </Link>   
     </section>
   );
 };
