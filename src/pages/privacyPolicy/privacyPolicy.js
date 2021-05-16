@@ -10,12 +10,12 @@ class PrivacyPolicy extends Component{
                 <h1 className="omOssColor">PrivacyPolicy</h1>
                 <table className="omOssColor">
                     <tr>
-                        <td>Nummer :</td>
-                        <td>07526511545</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td>E-mail :</td>
-                        <td>Silvana@yahoo.com</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
 
