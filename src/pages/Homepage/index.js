@@ -7,7 +7,7 @@ import BG from './../../assets/BG.jpg';
 
 const Homepage = (props) => {
   return (
-    <section className="homepage" style={{backgroundImage: `url(${BG})`}}>
+    <section className="homepage">
       {/*<Directory /> */}
       <div>
           <h1 id="MY_h2">Codic Online Shop</h1>
@@ -21,7 +21,7 @@ const Homepage = (props) => {
           </p>
         </div>
         
-        <Link to="/search">
+        <Link to="/search" id="locateBtn">
           <button id="TILL_Producter">  
             TILL VÅRA PRODUKTER         
           </button>   

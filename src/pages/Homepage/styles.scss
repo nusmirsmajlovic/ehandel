@@ -1,5 +1,6 @@
 .homepage {
     min-height: 100vh;
+    background-image: url("./../../assets/BG.jpg");
     background-color: #1A1A1A;
     background-position: right;
     background-repeat: no-repeat;
@@ -47,6 +48,25 @@
     &:hover {
       background: teal;
       cursor: pointer;
+    }
+
+  }
+
+  @media only screen and (max-width: 800px){
+    .homepage {
+      background-image: none;
+      justify-content: flex-start;
+      padding-top: 50px;
+      position: relative;
+      #homePage_p{
+        width: 90%;
+      }
+    }
+
+    #locateBtn{
+       position: absolute;
+       bottom: 20%;
+       left: 10%;
     }
 
   }

@@ -5,6 +5,7 @@ import {signOutUserStart} from './../../redux/User/user.actions';
 import { selectCartItemsCount } from './../../redux/Cart/cart.selectors';
 import './styles.scss';
 import Logo from './../../assets/codic-logo.png';
+import $ from "jquery";
 
 
 
@@ -20,9 +21,13 @@ const Header = props => {
     const dispatch = useDispatch();
     const {currentUser, totalNumCartItems} = useSelector(mapState);
 
-const signOut = () =>{
-    dispatch(signOutUserStart());
-};
+    const signOut = () =>{
+        dispatch(signOutUserStart());
+    };
+
+    const burgerOpen = () => {
+        $(".header").toggleClass('isOpen');
+    }
 
     return (
         <header className="header" >
@@ -31,7 +36,13 @@ const signOut = () =>{
                     <Link to="/">
                         <img src={Logo} alt="Codic" />
                     </Link>
+                    <div id="B_Container" onClick={burgerOpen}> {/* in react we call the function like this*/}
+                        <span>&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span>&nbsp;</span>
+                    </div>
                 </div>
+
 
                 <div className="header_nav_center">
                     <span><Link to="/">Home</Link></span>
@@ -48,9 +59,9 @@ const signOut = () =>{
                             {currentUser && [
                         
                                 <li>
-                                <Link to="/dashboard">
-                                    My Account
-                                </Link>
+                                    <Link to="/dashboard">
+                                        My Account
+                                    </Link>
                                 </li>,
                                 <li>
                                     <span onClick={() => signOut()}>
@@ -77,6 +88,7 @@ const signOut = () =>{
                         </ul>
 
                 </div>
+
             </div>
 
         </header>
