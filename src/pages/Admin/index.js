@@ -133,7 +133,8 @@ const Admin = props => {
               value={productPrice}
               handleChange={e => setProductPrice(e.target.value)}
              />
-            <CKEditor  onChange={evt => setProductDesc(evt.editor.getData())}
+            <CKEditor  
+               onChange={evt => setProductDesc(evt.editor.getData())}
             />
 
              <br />  

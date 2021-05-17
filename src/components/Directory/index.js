@@ -1,6 +1,5 @@
 import React from 'react';
-import BG from './../../assets/BG.jpg';
-
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 const Directory = props => {
@@ -19,9 +18,11 @@ const Directory = props => {
           </p>
         </div>
         
-        <a>
-            TILL VÅRA PRODUKTER
-        </a>   
+        
+        <Link to="search">
+                   Products
+        </Link>
+          
       </div>
     </div>
   );
