@@ -2,6 +2,7 @@
   height: 10%;
   margin: 0;
 
+<<<<<<< HEAD
   .wrap {
     background-color: #0e0505;
     display: inline-block;
@@ -39,9 +40,9 @@
 
       }
 
+=======
+>>>>>>> cf5635b455a87eaae5b478ac1281621182efd27d
   }
-
-}
 
 @media only screen and (max-width: 980px) {
 
@@ -56,23 +57,3 @@
 
 }
 
-.title_box{
-  display: flex;
-  position: absolute;
-  width: 400px;
-  flex-direction: column;
-  align-items: flex-start;
-  top: 40%;
-  left: 10%;
-  text-align: left;
-}
-.title_box * {
-  color: white;
-  margin: 0;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.title_box > h1{
-  margin-bottom: 40px;
-}

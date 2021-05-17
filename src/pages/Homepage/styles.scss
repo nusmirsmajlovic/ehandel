@@ -1,17 +1,72 @@
 .homepage {
-    min-height: 120vh;
-    background-color: #524E4E;
-    h2{
+    min-height: 100vh;
+    background-image: url("./../../assets/BG.jpg");
+    background-color: #1A1A1A;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 40% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 7%;
+
+    #MY_h2{
         color: white;
-        font-size: 2.2rem;
         line-height: 1;
         font-weight: 400;
         text-transform: uppercase;
-        text-align: center;
+        text-align: left;
         display: block;
         width: 100%;
         padding: 0;
-        margin: 0 auto 3rem;
+        margin: 0;
+    }
+
+    #homePage_p{
+        color: white;
+        margin: 40px 0;
+        width: 40%;
+        text-align: left;
+    }
+
+  }
+
+  #TILL_Producter{
+    color: black;
+    padding: 15px 15px;
+    border: 1px solid black;
+    background-color: rgb(238, 157, 6);
+    border-radius: 30px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    transition: 1s;
+    
+
+    &:hover {
+      background: teal;
+      cursor: pointer;
+    }
+
+  }
+
+  @media only screen and (max-width: 800px){
+    .homepage {
+      background-image: none;
+      justify-content: flex-start;
+      padding-top: 50px;
+      position: relative;
+      #homePage_p{
+        width: 90%;
+      }
+    }
+
+    #locateBtn{
+       position: absolute;
+       bottom: 20%;
+       left: 10%;
     }
 
   }

@@ -4,6 +4,7 @@ import './styles.scss';
 
 const Directory = props => {
   return (
+<<<<<<< HEAD
     <div className="directory">
       <div className="wrap" >
         <div className="title_box">
@@ -24,6 +25,9 @@ const Directory = props => {
         </Link>
           
       </div>
+=======
+    <div>
+>>>>>>> cf5635b455a87eaae5b478ac1281621182efd27d
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import Button from './../../forms/Button';
 import { useDispatch } from 'react-redux';
 import { addProduct } from './../../../redux/Cart/cart.actions';
+import "../styles.scss";
 
 
 const Product = (product) => {

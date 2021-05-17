@@ -50,9 +50,8 @@ const ProductCard = ({}) => {
       }
         return (
             <div className="productCart">
-              <div className="hero">
-                <img src={productThumbnail} />
-              </div>
+              <img id="card_img" src={productThumbnail} />
+              
               <div className="productDetails">
                 <ul>
                   <li>
@@ -66,16 +65,15 @@ const ProductCard = ({}) => {
                     </span>
                   </li>
                   <li>
+                    <span className="desc" dangerouslySetInnerHTML={{ __html: productDesc }} />
+                  </li>
+                  <li>
                     <div className="addToCart">
                       <Button {...configAddToCartBtn }onClick={() => handleAddToCart(product)}>
                         Add to cart
                       </Button>
                     </div>
                   </li>
-                  <span
-              className="desc"
-              dangerouslySetInnerHTML={{ __html: productDesc }} />
-        
                 </ul>
               </div>
             </div>

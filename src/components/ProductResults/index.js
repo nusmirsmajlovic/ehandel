@@ -99,7 +99,7 @@ const ProductResults =({}) => {
 
 
                 return (
-                    <Product {...configProduct} />
+                  <Product key={pos} {...configProduct} />
                 );
             })
             }

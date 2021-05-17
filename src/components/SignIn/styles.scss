@@ -12,6 +12,10 @@
   }
 }
 
+button {
+  transition: 1s;
+}
+
 #resetText{
   color: white;
 }
@@ -22,4 +26,9 @@
 
 .input_field{
   border-radius: 30px;
+}
+
+.links a {
+  color: white;
+  
 }

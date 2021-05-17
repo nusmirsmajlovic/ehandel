@@ -14,7 +14,9 @@ body,
 .App,
 .fulHeight
 {
-    min-height: 100vh;
+    //min-height: 100vh;
+    background-color: #3d3b3b;
+
 }
 
 *,::before, ::after{
@@ -44,6 +46,6 @@ a, a:hover{
     min-height:100vh;
     padding: 0 30px;
     margin: 0 80px;
-    background-color: rgb(192, 180, 180);
+    background-color: #3d3b3b;
    
   }
