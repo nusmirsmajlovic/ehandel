@@ -11,13 +11,7 @@ const Homepage = (props) => {
       {/*<Directory /> */}
       <div>
           <h1 id="MY_h2">Codic Online Shop</h1>
-          <p id="homePage_p"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+          <p id="homePage_p"> Har du svårt att hitta utvecklare till din startup eller större verksamhet? Inte så konstigt, då behovet av programmering är större än någonsin. Till din hjälp har du Codic Consulting i Göteborg - ett litet och lyhört IT-konsultbolag med desto större kompetens.
           </p>
         </div>
         
