@@ -62,11 +62,12 @@ const ProductResults =({}) => {
 
       const handleLoadMore = () => {
         dispatch(
-            fetchProductsStart({filterType,
-               startAfterDoc: quaryDoc,
-               persistProducts: data
-              })
-        )
+            fetchProductsStart({
+              filterType,
+              startAfterDoc: quaryDoc,
+              persistProducts: data
+            })
+         )
 
       };
 
@@ -101,8 +102,7 @@ const ProductResults =({}) => {
                 return (
                   <Product key={pos} {...configProduct} />
                 );
-            })
-            }
+            })}
 
             </div>
             {!isLastPage && (
@@ -110,7 +110,7 @@ const ProductResults =({}) => {
       )}
 
            
-        </div>
+      </div>
         
     );
   };
